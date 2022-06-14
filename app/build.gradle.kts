@@ -1,24 +1,28 @@
 plugins {
-    id ("com.android.application")
-    id ("org.jetbrains.kotlin.android")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jlleitschuh.gradle.ktlint")
+    id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Config.compileSdkVersion
 
     defaultConfig {
-        applicationId = "net.muazkadan.chucknorris"
-        minSdk = 21
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Config.applicationId
+        minSdk = Config.minSdkVersion
+        targetSdk = Config.targetSdkVersion
+        versionCode = Config.versionCode
+        versionName = Config.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Config.androidTestInstrumentation
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled =  false
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -32,15 +36,29 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.4.2")
-    implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Libs.AndroidX.core_ktx)
+    implementation(Libs.AndroidX.androidx_appcompat)
+    implementation(Libs.material)
+    implementation(Libs.AndroidX.constraint_layout)
+    testImplementation(Libs.UnitTest.junit)
+    androidTestImplementation(Libs.UnitTest.junit_test)
+    androidTestImplementation(Libs.UnitTest.espresso)
+
+    // navigation
+    implementation(Libs.Navigation.navigation_fragment_ktx)
+    implementation(Libs.Navigation.navigation_ui_ktx)
+
+    // hilt
+    implementation(Libs.DaggerHilt.daggerHilt)
+    kapt(Libs.DaggerHilt.daggerHiltCompiler)
+
+    // timber
+    implementation(Libs.Debug.timber)
 }
