@@ -47,10 +47,10 @@ dependencies {
     implementation(Libs.AndroidX.androidx_appcompat)
     implementation(Libs.material)
     implementation(Libs.AndroidX.constraint_layout)
+    implementation(Libs.AndroidX.legacy_support)
     testImplementation(Libs.UnitTest.junit)
     androidTestImplementation(Libs.UnitTest.junit_test)
     androidTestImplementation(Libs.UnitTest.espresso)
-
     // navigation
     implementation(Libs.Navigation.navigation_fragment_ktx)
     implementation(Libs.Navigation.navigation_ui_ktx)
@@ -61,4 +61,12 @@ dependencies {
 
     // timber
     implementation(Libs.Debug.timber)
+
+    // Image
+    implementation(Libs.Glide.glide)
+    kapt(Libs.Glide.compiler)
+
+    // coroutine
+    implementation(Libs.Coroutines.android)
+    implementation(Libs.Coroutines.core)
 }

@@ -15,5 +15,8 @@ object Versions {
     const val navigation = "2.4.2"
     const val hilt = "2.42"
     const val timber = "5.0.1"
+    const val glide = "4.13.2"
+    const val legacy_support = "1.0.0"
+    const val coroutines = "1.6.0"
 
 }

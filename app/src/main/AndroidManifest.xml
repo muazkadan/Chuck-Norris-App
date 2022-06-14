@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="net.muazkadan.chucknorris">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".CNApp"
         android:allowBackup="true"

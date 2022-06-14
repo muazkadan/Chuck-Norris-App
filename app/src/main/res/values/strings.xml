@@ -2,4 +2,9 @@
     <string name="app_name">Chuck Norris</string>
     <string name="home">Home</string>
     <string name="categories">Categories</string>
+
+    <string name="cn_logo_link">https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png</string>
+
+    <!-- Content Description -->
+    <string name="cn_logo">Chuck Norris logo</string>
 </resources>

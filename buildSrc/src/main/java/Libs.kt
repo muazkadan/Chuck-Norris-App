@@ -11,6 +11,8 @@ object Libs {
         const val androidx_appcompat: String = "androidx.appcompat:appcompat:" + Versions.appCompat
         const val constraint_layout: String =
             "androidx.constraintlayout:constraintlayout:" + Versions.constraint
+        const val legacy_support: String =
+            "androidx.legacy:legacy-support-v4:" + Versions.legacy_support
     }
 
     object Navigation {
@@ -37,6 +39,18 @@ object Libs {
         const val junit = "junit:junit:${Versions.junit}"
         const val junit_test: String = "androidx.test.ext:junit:" + Versions.junit_test
         const val espresso: String = "androidx.test.espresso:espresso-core:" + Versions.espresso
+    }
+
+    object Glide {
+        const val glide = "com.github.bumptech.glide:glide:" + Versions.glide
+        const val compiler = "com.github.bumptech.glide:compiler:" + Versions.glide
+    }
+
+    object Coroutines {
+        const val android =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+        const val core =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     }
 
 }
