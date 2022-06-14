@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_8dp">8dp</dimen>
+    <dimen name="space_24dp">24dp</dimen>
+    <dimen name="space_28dp">28dp</dimen>
+    <dimen name="space_36dp">36dp</dimen>
+
+    <dimen name="radius_12dp">14dp</dimen>
+    <dimen name="radius_14dp">14dp</dimen>
+</resources>

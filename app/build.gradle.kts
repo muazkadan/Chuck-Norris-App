@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":ui-component"))
     implementation(Libs.AndroidX.core_ktx)
     implementation(Libs.AndroidX.androidx_appcompat)
     implementation(Libs.material)
@@ -51,6 +51,7 @@ dependencies {
     testImplementation(Libs.UnitTest.junit)
     androidTestImplementation(Libs.UnitTest.junit_test)
     androidTestImplementation(Libs.UnitTest.espresso)
+
     // navigation
     implementation(Libs.Navigation.navigation_fragment_ktx)
     implementation(Libs.Navigation.navigation_ui_ktx)
