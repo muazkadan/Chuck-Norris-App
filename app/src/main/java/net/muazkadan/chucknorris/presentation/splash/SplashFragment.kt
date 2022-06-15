@@ -29,7 +29,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun initViews() = with(binding) {
-        ivLogo.setImageUrlWithProgress(getString(R.string.cn_logo_link))
+        ivLogo.setImageUrlWithProgress(getString(R.string.cn_logo_link), R.drawable.cn_logo)
     }
 
     private fun observe() = with(viewModel) {

@@ -4,6 +4,7 @@ package net.muazkadan.chucknorris.utils
  * Copied from https://gist.github.com/gmk57/aefa53e9736d4d4fb2284596fb62710d
  */
 
+import android.app.Dialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,3 +53,10 @@ inline fun <T : ViewBinding> DialogFragment.viewBinding(crossinline factory: (La
 /** Not really a delegate, just a small helper for RecyclerView.ViewHolders */
 inline fun <T : ViewBinding> ViewGroup.viewBinding(factory: (LayoutInflater, ViewGroup, Boolean) -> T) =
     factory(LayoutInflater.from(context), this, false)
+
+/** Binding delegate for Dialogs implementing onCreateDialog (like Activities, they don't
+ *  have a separate view lifecycle), may be used since onCreateDialog up to onDestroy (inclusive) */
+inline fun <T : ViewBinding> Dialog.viewBinding(crossinline factory: (LayoutInflater) -> T) =
+    lazy(LazyThreadSafetyMode.NONE) {
+        factory(layoutInflater)
+    }
