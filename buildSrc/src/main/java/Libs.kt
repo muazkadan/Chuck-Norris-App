@@ -53,4 +53,11 @@ object Libs {
             "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     }
 
+    object Network {
+        const val retrofit = "com.squareup.retrofit2:retrofit:" + Versions.retrofit
+        const val converter = "com.squareup.retrofit2:converter-gson:" + Versions.retrofit
+        const val okhttp = "com.squareup.okhttp3:okhttp:" + Versions.ok_http
+        const val interceptor = "com.squareup.okhttp3:logging-interceptor:" + Versions.ok_http
+    }
+
 }

@@ -18,5 +18,6 @@ object Versions {
     const val glide = "4.13.2"
     const val legacy_support = "1.0.0"
     const val coroutines = "1.6.0"
-
+    const val retrofit = "2.9.0"
+    const val ok_http = "5.0.0-alpha.2"
 }

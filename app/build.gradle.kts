@@ -20,6 +20,10 @@ android {
         testInstrumentationRunner = Config.androidTestInstrumentation
     }
 
+    defaultConfig {
+        buildConfigField("String", "baseUrl", "\"https://api.chucknorris.io/jokes/\"")
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -70,4 +74,10 @@ dependencies {
     // coroutine
     implementation(Libs.Coroutines.android)
     implementation(Libs.Coroutines.core)
+
+    // Network
+    implementation(Libs.Network.retrofit)
+    implementation(Libs.Network.converter)
+    implementation(Libs.Network.okhttp)
+    implementation(Libs.Network.interceptor)
 }
