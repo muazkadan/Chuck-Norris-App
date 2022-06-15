@@ -5,10 +5,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import net.muazkadan.chucknorris.BuildConfig
+import net.muazkadan.chucknorris.data.network.CNApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 /**
@@ -43,4 +45,9 @@ object NetworkModule {
             .baseUrl(BuildConfig.baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+    @Provides
+    @Singleton
+    fun provideService(retrofit: Retrofit): CNApi =
+        retrofit.create(CNApi::class.java)
 }
