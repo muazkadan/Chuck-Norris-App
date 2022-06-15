@@ -19,4 +19,7 @@ interface CNApi {
     suspend fun searchJokesByQuery(
         @Query("query") query: String
     ): Response<SearchJokeResponse>
+
+    @GET("categories")
+    suspend fun getCategories(): Response<List<String>>
 }
