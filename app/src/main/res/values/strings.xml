@@ -12,4 +12,5 @@
 
     <!-- Content Description -->
     <string name="cn_logo">Chuck Norris logo</string>
+    <string name="loading_indicator">Loading indicator</string>
 </resources>

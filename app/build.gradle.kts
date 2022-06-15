@@ -80,4 +80,8 @@ dependencies {
     implementation(Libs.Network.converter)
     implementation(Libs.Network.okhttp)
     implementation(Libs.Network.interceptor)
+
+    // Lifecycle
+    implementation(Libs.LifeCycle.common)
+    implementation(Libs.LifeCycle.runtime)
 }

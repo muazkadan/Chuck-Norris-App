@@ -60,4 +60,9 @@ object Libs {
         const val interceptor = "com.squareup.okhttp3:logging-interceptor:" + Versions.ok_http
     }
 
+    object LifeCycle{
+        const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:" + Versions.lifecycle
+        const val common = "androidx.lifecycle:lifecycle-common-java8:" + Versions.lifecycle
+    }
+
 }

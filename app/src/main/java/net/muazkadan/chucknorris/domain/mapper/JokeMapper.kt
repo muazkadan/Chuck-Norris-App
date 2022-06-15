@@ -18,10 +18,10 @@ class JokeMapper @Inject constructor(
     override fun map(input: JokeResponse): JokeUIModel {
         return JokeUIModel(
             categories = categoriesDecider.getCategoriesStringList(input.categories.orEmpty()),
-            createdAt = dateFormatter.dateToSting(input.createdAt),
+            createdAt = dateFormatter.formatStringDate(input.createdAt),
             iconUrl = input.iconUrl.orEmpty(),
             id = input.id.orEmpty(),
-            updatedAt = dateFormatter.dateToSting(input.updatedAt),
+            updatedAt = dateFormatter.formatStringDate(input.updatedAt),
             url = input.url.orEmpty(),
             value = input.value.orEmpty()
         )

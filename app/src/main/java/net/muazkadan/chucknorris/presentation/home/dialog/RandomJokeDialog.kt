@@ -13,7 +13,7 @@ import net.muazkadan.chucknorris.utils.viewBinding
  * @author muaz
  * Created on 6/15/2022.
  */
-class RandomJokDialog(
+class RandomJokeDialog(
     context: Context,
     private val joke: String,
     private val callback: (String) -> Unit
