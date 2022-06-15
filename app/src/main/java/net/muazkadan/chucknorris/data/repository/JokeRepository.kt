@@ -13,4 +13,6 @@ class JokeRepository @Inject constructor(
 ) : BaseRepository() {
 
     suspend fun getRandomJoke() = safeApiCall { service.getRandomJoke() }
+
+    suspend fun getJokeByQuery(query: String) = safeApiCall { service.searchJokesByQuery(query) }
 }

@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import net.muazkadan.chucknorris.data.repository.JokeRepository
 import net.muazkadan.chucknorris.domain.mapper.JokeMapper
+import net.muazkadan.chucknorris.domain.mapper.SearchJokesMapper
+import net.muazkadan.chucknorris.domain.usecase.GetJokesByQueryUseCase
 import net.muazkadan.chucknorris.domain.usecase.GetRandomJokeUseCase
 
 /**
@@ -21,4 +23,10 @@ object UseCaseModule {
         repository: JokeRepository,
         mapper: JokeMapper
     ) = GetRandomJokeUseCase(repository, mapper)
+
+    @Provides
+    fun provideGetJokesByQueryUseCase(
+        repository: JokeRepository,
+        mapper: SearchJokesMapper
+    ) = GetJokesByQueryUseCase(repository, mapper)
 }

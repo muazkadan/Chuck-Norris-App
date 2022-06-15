@@ -26,11 +26,11 @@ class SearchBox @JvmOverloads constructor(
     init {
         context.theme.obtainStyledAttributes(
             attrs,
-            R.styleable.CNSearchBox,
+            R.styleable.SearchBox,
             0, 0
         ).apply {
             try {
-                binding.etSearch.hint = getString(R.styleable.CNSearchBox_et_hint)
+                binding.etSearch.hint = getString(R.styleable.SearchBox_et_hint)
             } finally {
                 recycle()
             }
@@ -68,6 +68,12 @@ class SearchBox @JvmOverloads constructor(
 
     fun edittextRequestFocus() =
         binding.etSearch.requestFocus()
+
+    fun onBtnSearchClickListener(onClick: () -> Unit?) {
+        binding.btnSearch.setOnClickListener {
+            onClick()
+        }
+    }
 
     private val textWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit

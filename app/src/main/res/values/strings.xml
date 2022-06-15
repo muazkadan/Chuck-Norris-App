@@ -7,6 +7,7 @@
     <string name="random_joke">Random Joke</string>
     <string name="share">Share</string>
     <string name="dismiss">Dismiss</string>
+    <string name="no_result">No Result</string>
 
     <string name="cn_logo_link">https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png</string>
 

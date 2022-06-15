@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_12dp"
             android:layout_marginTop="@dimen/space_12dp"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/ivShare"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,11 +34,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/category_chip"
+            android:id="@+id/chipCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_12dp"
             android:textAllCaps="true"
+            android:textSize="12sp"
             android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

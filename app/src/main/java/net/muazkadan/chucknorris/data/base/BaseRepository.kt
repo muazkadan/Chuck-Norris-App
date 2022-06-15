@@ -5,9 +5,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import org.json.JSONObject
 import retrofit2.Response
 import java.io.IOException
-import java.lang.Exception
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
@@ -28,7 +28,12 @@ abstract class BaseRepository {
         } else {
             val responseError = response.errorBody()
             if (responseError != null) {
-                emit(RestResult.Error(Exception(responseError.string())))
+                if (response.code() == 500) {
+                    val jObjError = JSONObject(responseError.string())
+                    emit(RestResult.Error(java.lang.Exception(jObjError.get("message").toString())))
+                } else {
+                    emit(RestResult.Error(Exception(responseError.string())))
+                }
             } else {
                 emit(RestResult.Error(Exception("Unknown Error")))
             }
