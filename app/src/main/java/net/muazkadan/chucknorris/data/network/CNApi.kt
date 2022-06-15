@@ -1,6 +1,6 @@
 package net.muazkadan.chucknorris.data.network
 
-import net.muazkadan.chucknorris.data.model.response.RandomJokeResponse
+import net.muazkadan.chucknorris.data.model.response.JokeResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -11,5 +11,5 @@ import retrofit2.http.GET
 interface CNApi {
 
     @GET("random")
-    suspend fun getRandomJoke(): Response<RandomJokeResponse>
+    suspend fun getRandomJoke(): Response<JokeResponse>
 }
