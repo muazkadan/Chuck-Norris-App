@@ -9,6 +9,7 @@ import javax.inject.Inject
 class CategoriesDecider @Inject constructor() {
 
     fun getCategoriesStringList(categories: List<String>): String {
+        if (categories.isEmpty()) return "UNCATEGORIZED"
         return categories.joinToString(", ")
     }
 }

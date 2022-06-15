@@ -27,13 +27,13 @@ class CategoriesDeciderTest {
     }
 
     @Test
-    fun `when list is empty, then expected value is empty string`() {
+    fun `when list is empty, then expected value is UNCATEGORIZED string`() {
         // Given
         val list = listOf<String>()
         // When
         val listToString = categoriesDecider.getCategoriesStringList(list)
         // Then
-        assert(listToString == "")
+        assert(listToString == "UNCATEGORIZED")
     }
 
     @Test

@@ -11,9 +11,9 @@ import com.google.android.material.textfield.TextInputEditText
  * Created on 6/14/2022.
  */
 class CNEditText : AppCompatEditText {
-    @JvmOverloads constructor(context: Context) : super(context)
-    @JvmOverloads constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
-    @JvmOverloads constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
         context,
         attrs,
         defStyle

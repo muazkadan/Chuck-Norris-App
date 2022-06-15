@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        setupBottomNavigationBar()
+    }
+
     private fun setupBottomNavigationBar() {
         val controller = binding.bottomNav.setupWithNavController(
             navGraphIds = navGraphIds,
@@ -49,7 +54,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleNavDestination(destination: NavDestination) {
         when (destination.id) {
-            R.id.splashFragment -> {
+            R.id.splashFragment,
+            R.id.searchFragment -> {
                 binding.bottomNav.isVisible = false
             }
             else -> {

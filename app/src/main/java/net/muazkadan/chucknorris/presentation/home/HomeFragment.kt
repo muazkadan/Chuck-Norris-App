@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import net.muazkadan.chucknorris.R
@@ -37,6 +38,13 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         ivLogo.setImageUrlWithProgress(getString(R.string.cn_logo_link), R.drawable.cn_logo)
         btnRandomJoke.setOnClickListener {
             viewModel.getRandomJoke()
+        }
+        btnSearch.setOnClickListener {
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToSearchFragment(
+                    query = etSearch.text.toString()
+                )
+            )
         }
     }
 
