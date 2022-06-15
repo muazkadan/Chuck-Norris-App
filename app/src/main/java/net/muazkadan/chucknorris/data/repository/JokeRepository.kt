@@ -12,7 +12,7 @@ class JokeRepository @Inject constructor(
     private val service: CNApi
 ) : BaseRepository() {
 
-    suspend fun getRandomJoke() = safeApiCall { service.getRandomJoke() }
+    suspend fun getRandomJoke(category: String? = null) = safeApiCall { service.getRandomJoke(category) }
 
     suspend fun getJokeByQuery(query: String) = safeApiCall { service.searchJokesByQuery(query) }
 

@@ -15,9 +15,10 @@ class GetRandomJokeUseCase @Inject constructor(
     private val mapper: JokeMapper
 ) {
 
-    suspend operator fun invoke() = repository.getRandomJoke().map { restResult ->
-        restResult.map { response ->
-            mapper.map(response)
+    suspend operator fun invoke(category: String? = null) =
+        repository.getRandomJoke(category).map { restResult ->
+            restResult.map { response ->
+                mapper.map(response)
+            }
         }
-    }
 }

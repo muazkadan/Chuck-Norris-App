@@ -1,5 +1,6 @@
 package net.muazkadan.chucknorris.presentation.category
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -14,6 +15,7 @@ import net.muazkadan.chucknorris.R
 import net.muazkadan.chucknorris.databinding.FragmentCategoryBinding
 import net.muazkadan.chucknorris.presentation.category.adapter.CategoryAdapter
 import net.muazkadan.chucknorris.presentation.category.adapter.CategoryItemDecorator
+import net.muazkadan.chucknorris.presentation.home.dialog.RandomJokeDialog
 import net.muazkadan.chucknorris.utils.extensions.toast
 import net.muazkadan.chucknorris.utils.viewBinding
 
@@ -53,6 +55,15 @@ class CategoryFragment :
                     }
                 }
                 launch {
+                    uiEvent.collect { uiEvent ->
+                        uiEvent.randomJoke?.run {
+                            RandomJokeDialog(requireContext(), this) { joke ->
+                                shareJoke(joke)
+                            }.show()
+                        }
+                    }
+                }
+                launch {
                     loadingState.collect {
                         binding.progressBar.isVisible = it
                     }
@@ -67,7 +78,17 @@ class CategoryFragment :
         }
     }
 
+    private fun shareJoke(sharedText: String) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, sharedText)
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
     override fun onClickCategory(category: String) {
-        TODO("Not yet implemented")
+        viewModel.getRandomJoke(category)
     }
 }

@@ -13,7 +13,9 @@ import retrofit2.http.Query
 interface CNApi {
 
     @GET("random")
-    suspend fun getRandomJoke(): Response<JokeResponse>
+    suspend fun getRandomJoke(
+        @Query("category") category: String? = null
+    ): Response<JokeResponse>
 
     @GET("search")
     suspend fun searchJokesByQuery(
