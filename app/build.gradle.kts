@@ -1,23 +1,23 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("org.jlleitschuh.gradle.ktlint")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ktlint)
     id("kotlin-kapt")
-    id("androidx.navigation.safeargs.kotlin")
-    id("dagger.hilt.android.plugin")
+    alias(libs.plugins.navigation.safeargs)
+    alias(libs.plugins.hilt)
 }
 
 android {
-    compileSdk = Config.compileSdkVersion
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = Config.applicationId
-        minSdk = Config.minSdkVersion
-        targetSdk = Config.targetSdkVersion
-        versionCode = Config.versionCode
-        versionName = Config.versionName
+        applicationId = "net.muazkadan.chucknorris"
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
+        versionCode = libs.versions.versionCode.get().toInt()
+        versionName = libs.versions.versionName.get()
 
-        testInstrumentationRunner = Config.androidTestInstrumentation
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     defaultConfig {
@@ -47,41 +47,41 @@ android {
 
 dependencies {
     implementation(project(":ui-component"))
-    implementation(Libs.AndroidX.core_ktx)
-    implementation(Libs.AndroidX.androidx_appcompat)
-    implementation(Libs.material)
-    implementation(Libs.AndroidX.constraint_layout)
-    implementation(Libs.AndroidX.legacy_support)
-    testImplementation(Libs.UnitTest.junit)
-    androidTestImplementation(Libs.UnitTest.junit_test)
-    androidTestImplementation(Libs.UnitTest.espresso)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.legacy.support)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.core)
 
     // navigation
-    implementation(Libs.Navigation.navigation_fragment_ktx)
-    implementation(Libs.Navigation.navigation_ui_ktx)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
 
     // hilt
-    implementation(Libs.DaggerHilt.daggerHilt)
-    kapt(Libs.DaggerHilt.daggerHiltCompiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     // timber
-    implementation(Libs.Debug.timber)
+    implementation(libs.timber)
 
     // Image
-    implementation(Libs.Glide.glide)
-    kapt(Libs.Glide.compiler)
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 
     // coroutine
-    implementation(Libs.Coroutines.android)
-    implementation(Libs.Coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.core)
 
     // Network
-    implementation(Libs.Network.retrofit)
-    implementation(Libs.Network.converter)
-    implementation(Libs.Network.okhttp)
-    implementation(Libs.Network.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
 
     // Lifecycle
-    implementation(Libs.LifeCycle.common)
-    implementation(Libs.LifeCycle.runtime)
+    implementation(libs.androidx.lifecycle.common.java8)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 }

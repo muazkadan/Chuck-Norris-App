@@ -1,16 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id("com.android.application") version "7.2.1" apply false
-    id("com.android.library") version "7.2.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.7.0" apply false
-}
-
-buildscript {
-    dependencies {
-        classpath("org.jlleitschuh.gradle:ktlint-gradle:${Versions.ktLint}")
-        classpath(Libs.Navigation.safe_args_plugin)
-        classpath(Libs.DaggerHilt.daggerHiltGradlePlugin)
-    }
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.ktlint) apply false
+    alias(libs.plugins.navigation.safeargs) apply false
+    alias(libs.plugins.hilt) apply false
 }
 
 tasks.register("clean", Delete::class) {
