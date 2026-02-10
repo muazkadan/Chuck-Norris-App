@@ -2,14 +2,14 @@ package net.muazkadan.chucknorris.utils.extensions
 
 import android.widget.ImageView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import net.muazkadan.chucknorris.di.GlideApp
+import com.bumptech.glide.Glide
 
 /**
  * @author muaz
  * Created on 6/14/2022.
  */
 fun ImageView.setImageUrl(imageUrl: Any, onError: Any? = null) {
-    GlideApp.with(context)
+    Glide.with(context)
         .load(imageUrl)
         .error(onError)
         .into(this)
@@ -25,7 +25,7 @@ fun ImageView.setImageUrlWithProgress(
         start()
     }
 
-    GlideApp.with(context)
+    Glide.with(context)
         .load(imageUrl)
         .error(onError)
         .placeholder(circularProgressDrawable)

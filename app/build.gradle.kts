@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
-    id("kotlin-kapt")
     alias(libs.plugins.navigation.safeargs)
     alias(libs.plugins.hilt)
 }
@@ -62,14 +62,14 @@ dependencies {
 
     // hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     // timber
     implementation(libs.timber)
 
     // Image
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.ksp)
 
     // coroutine
     implementation(libs.kotlinx.coroutines.android)
