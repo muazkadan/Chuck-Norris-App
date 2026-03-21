@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+    namespace = "net.muazkadan.uicomponent"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

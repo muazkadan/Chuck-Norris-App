@@ -10,6 +10,7 @@ plugins {
 }
 
 android {
+    namespace = "net.muazkadan.chucknorris"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
